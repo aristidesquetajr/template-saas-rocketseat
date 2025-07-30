@@ -1,6 +1,10 @@
 import { loadStripe, Stripe } from '@stripe/stripe-js'
 import { useEffect, useState } from 'react'
 
+type StripeCheckout = {
+  testId: string
+}
+
 export function useStripe() {
   const [stripe, setStripe] = useState<Stripe | null>(null)
 
@@ -13,7 +17,7 @@ export function useStripe() {
     loadStripeAsync()
   }, [])
 
-  async function createPaymentStripeCheckout(checkout: any) {
+  async function createPaymentStripeCheckout(checkout: StripeCheckout) {
     if (!stripe) return
 
     try {
@@ -33,7 +37,7 @@ export function useStripe() {
     }
   }
 
-  async function createSubscriptionStripeCheckout(checkout: any) {
+  async function createSubscriptionStripeCheckout(checkout: StripeCheckout) {
     if (!stripe) return
 
     try {
