@@ -2,7 +2,7 @@ import { loadStripe, Stripe } from '@stripe/stripe-js'
 import { useEffect, useState } from 'react'
 
 type StripeCheckout = {
-  testId: string
+  testeId: string
 }
 
 export function useStripe() {
